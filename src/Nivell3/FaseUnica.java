@@ -1,13 +1,15 @@
 package Nivell3;
 
+import java.time.*;
+
 public class FaseUnica {
 	
 	public static void main(String[] args) throws InterruptedException {
 		
-		//defineix les variables que es faran servir pel rellotge
-		int hour = 0;
-		int minutes = 0;
-		int seconds = 0;
+		//defineix i inicialitza les variables amb el moment que s'inicialitzi el rellotge. Després es calcularà l'hora a partir d'aquestes dades
+		int hour = LocalDateTime.now().getHour();
+		int minutes =  LocalDateTime.now().getMinute();
+		int seconds =  LocalDateTime.now().getSecond();
 		
 		for (int i=0; i<61; i++) {
 			
@@ -32,6 +34,8 @@ public class FaseUnica {
 			//pausa 1000 ms l'execució de cada "volta" del loop
 			Thread.sleep(1000);
 			
+			//TODO: esborra la conslola abans de plotejar el següent número
+
 			//converteix els números del 0 al 9 a strings del 00 al 09 i els ploteja
 			System.out.println(String.format("%02d", hour) + ":" + String.format("%02d", minutes) + ":" + String.format("%02d", seconds));
 			seconds++;
